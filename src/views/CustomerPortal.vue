@@ -1,5 +1,6 @@
 <template>
   <div class="table-container">
+    <LoaderView :loading="loading" />
     <el-table
       :data="tableData"
       border
@@ -22,8 +23,9 @@
 
 <script>
 import { get } from "@/utils/axiosHelper"; // Import Axios helper
-
+import LoaderView from "@/utils/LoaderView.vue";
 export default {
+  components: { LoaderView },
   data() {
     return {
       tableData: [], // Stores fetched data
